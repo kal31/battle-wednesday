@@ -1,9 +1,9 @@
 require 'sinatra'
 require "sinatra/reloader" if development?
 
-get '/addition' do
-  "Welcome page"
-end
+# get '/addition' do
+#   "Welcome page"
+# end
 
 # get '/' do
 #   "Hello!"
@@ -43,3 +43,17 @@ end
 #     @name = params[:name]
 #       erb(:index)
 #   end
+
+get '/addition-form' do
+    p params
+  erb :addition_form
+end
+
+post '/sum' do
+    p params
+    @name = params[:name]
+    @first_num = params[:first_num]
+    @second_num = params[:second_num]
+    @sum = @first_num.to_i + @second_num.to_i
+  erb :sum_of_form
+end
